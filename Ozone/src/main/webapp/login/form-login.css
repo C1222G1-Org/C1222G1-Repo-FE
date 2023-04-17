@@ -13,10 +13,6 @@ body {
     min-width: 100%;
     padding: 0;
     background: rgb(240, 242, 245);
-    /*background-image: linear-gradient(*/
-    /*        rgba(10, 10, 10, 0.7),*/
-    /*        rgba(10, 10, 10, 0.7)),*/
-    /*url(../assets/images/msg5069082961-84388.jpg);*/
     height: 100vh;
     font-family: SansSerif, Helvetica Neue, Segoe UI, Roboto, Ubuntu;
 }
@@ -29,7 +25,7 @@ body {
     position: relative;
 }
 .header .logo {
-    width: 150px;
+    width: 100px;
 }
 
 /* --------------------MAIN--------------------- */
