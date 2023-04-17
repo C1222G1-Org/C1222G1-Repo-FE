@@ -47,6 +47,9 @@
                   value="${username}"
                 </c:if>
         />
+        <c:if test="${usernameValidate == null}">
+        <p style="color: red; margin-top: -8px; margin-bottom: 8px" class="title-error-login">${usernameValidate}</p>
+        </c:if>
         <c:if test="${usernameMessage != null}">
           <p style="color: red; margin-top: -8px; margin-bottom: 8px" class="title-error-login">${usernameMessage}</p>
         </c:if>
