@@ -14,6 +14,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("login/form-login.jsp");
+
+        request.setAttribute("message",  request.getParameter("message"));
         dispatcher.forward(request, response);
     }
 
