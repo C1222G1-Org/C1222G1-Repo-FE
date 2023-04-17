@@ -30,7 +30,7 @@
       <nav
               class="d-flex justify-content-between align-items-center pt-3 pb-3"
       >
-        <img src="${pageContext.request.contextPath}/assets/images/logo.png" class="logo"/>
+        <a href="home"><img src="${pageContext.request.contextPath}/assets/images/logo.PNG" class="logo"/></a>
       </nav>
     </nav>
   </div>

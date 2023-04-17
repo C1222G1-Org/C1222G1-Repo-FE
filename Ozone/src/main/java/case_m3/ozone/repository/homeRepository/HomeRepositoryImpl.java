@@ -30,9 +30,8 @@ public class HomeRepositoryImpl implements IHomeRepository {
                 String title = resultSet.getString("title_post");
                 String content = resultSet.getString("content_post");
                 int account = resultSet.getInt("id_account");
-                String username = resultSet.getString("username_post");
                 Date datePost = resultSet.getDate("date_post");
-                actionPostList.add(new Post(id, title, content, account, username, datePost));
+                actionPostList.add(new Post(id, title, content, account, datePost));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -54,9 +53,8 @@ public class HomeRepositoryImpl implements IHomeRepository {
                 String title = resultSet.getString("title_post");
                 String content = resultSet.getString("content_post");
                 int account = resultSet.getInt("id_account");
-                String username = resultSet.getString("username_post");
                 Date datePost = resultSet.getDate("date_post");
-                postList.add(new Post(id, title, content, account, username, datePost));
+                postList.add(new Post(id, title, content, account, datePost));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -76,9 +74,8 @@ public class HomeRepositoryImpl implements IHomeRepository {
                 String title = resultSet.getString("title_post");
                 String content = resultSet.getString("content_post");
                 int account = resultSet.getInt("id_account");
-                String username = resultSet.getString("username_post");
                 Date datePost = resultSet.getDate("date_post");
-                newPostList.add(new Post(id, title, content, account, username, datePost));
+                newPostList.add(new Post(id, title, content, account, datePost));
             }
             DBConnection.close();
             return newPostList;
@@ -98,9 +95,8 @@ public class HomeRepositoryImpl implements IHomeRepository {
                 String title = resultSet.getString("title_post");
                 String content = resultSet.getString("content_post");
                 int account = resultSet.getInt("id_account");
-                String username = resultSet.getString("username_post");
                 Date datePost = resultSet.getDate("date_post");
-                post = new Post(title, content, account, username, datePost);
+                post = new Post(title, content, account, datePost);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -119,9 +115,8 @@ public class HomeRepositoryImpl implements IHomeRepository {
                 int id_comment = resultSet.getInt("cm.id_comment");
                 String content_comment = resultSet.getString("cm.content_comment");
                 int account = resultSet.getInt("cm.id_account");
-                String username = resultSet.getString("username_comment");
                 Date dateComment = resultSet.getDate("date_comment");
-                commentList.add(new Comment(id_comment, content_comment, account, username, dateComment));
+                commentList.add(new Comment(id_comment, content_comment, account, dateComment));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -158,9 +153,8 @@ public class HomeRepositoryImpl implements IHomeRepository {
                     int idPost = resultSet.getInt("id_post");
                     int account = resultSet.getInt("id_account");
                     String content = resultSet.getString("content_comment");
-                    String username = resultSet.getString("username_comment");
                     Date commentDate = resultSet.getDate("comment_date");
-                    commentList.add(new Comment(id, idPost, content, account, username, commentDate));
+                    commentList.add(new Comment(id, idPost, content, account, commentDate));
                 }
                 DBConnection.close();
                 return commentList;

@@ -14,7 +14,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" href="${pageContext.request.contextPath}/assets/images/logo-title.png">
-  <title>Login</title>
+  <title>Register</title>
   <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -30,7 +30,7 @@
       <nav
               class="d-flex justify-content-between align-items-center pt-3 pb-3"
       >
-        <img src="${pageContext.request.contextPath}/assets/images/logo.png"  class="logo"/>
+        <a href="home"><img src="${pageContext.request.contextPath}/assets/images/logo.PNG" class="logo"/></a>
       </nav>
     </nav>
   </div>

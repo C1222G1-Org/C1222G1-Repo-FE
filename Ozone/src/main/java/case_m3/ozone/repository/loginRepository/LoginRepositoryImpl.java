@@ -55,6 +55,9 @@ public class LoginRepositoryImpl implements ILoginRepository {
     public int checkUsernameRetrive(String name) {
         List<AccountUser> accountUserList = getListAccountUser();
         for (AccountUser accountUser : accountUserList) {
+            if (name.equals(null)){
+                return 3;
+            }
             if (name.equals(accountUser.getUsername())) {
                 return 0;
             }
@@ -66,6 +69,9 @@ public class LoginRepositoryImpl implements ILoginRepository {
     public int checkEmailRetrive(String email) {
         List<AccountUser> accountUserList = getListAccountUser();
         for (AccountUser accountUser : accountUserList) {
+            if (email.equals(null)){
+                return 3;
+            }
             if (email.equals(accountUser.getEmail())) {
                 return 0;
             }

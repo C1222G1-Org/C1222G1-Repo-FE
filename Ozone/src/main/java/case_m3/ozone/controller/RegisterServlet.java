@@ -22,6 +22,13 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
+        if (loginService.checkUsernameRetrive(username) == 3){
+            request.setAttribute("username", username);
+            request.setAttribute("email", email);
+            request.setAttribute("password", password);
+            request.setAttribute("usernameValidate","username cannot be empty");
+            request.getRequestDispatcher("register/register.jsp?status=0").forward(request, response);
+        }
         if (loginService.checkUsernameRetrive(username) == 0) {
             request.setAttribute("username", username);
             request.setAttribute("email", email);

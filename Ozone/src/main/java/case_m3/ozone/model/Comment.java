@@ -7,26 +7,23 @@ public class Comment {
     private int post;
     private  String content;
     private  int account;
-    private String username;
     private Date commentDate;
 
     public Comment() {
     }
 
-    public Comment(int id, int post, String content, int account, String username, Date commentDate) {
+    public Comment(int id, int post, String content, int account, Date commentDate) {
         this.id = id;
         this.post = post;
         this.content = content;
         this.account = account;
-        this.username = username;
         this.commentDate = commentDate;
     }
 
-    public Comment(int id, String content, int account, String username, Date commentDate) {
+    public Comment(int id, String content, int account, Date commentDate) {
         this.id = id;
         this.content = content;
         this.account = account;
-        this.username = username;
         this.commentDate = commentDate;
     }
     public int getId() {
@@ -61,12 +58,6 @@ public class Comment {
         this.account = account;
     }
 
-    public String getUsername() {
-        return username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public Date getCommentDate() {
         return commentDate;
