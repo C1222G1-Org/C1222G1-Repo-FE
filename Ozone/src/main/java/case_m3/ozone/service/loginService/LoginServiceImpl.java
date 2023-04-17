@@ -21,13 +21,18 @@ public class LoginServiceImpl implements ILoginService{
     public int checkUsernameRetrive(String name) {
         return loginRepository.checkUsernameRetrive(name);
     }
+    @Override
+    public int checkEmailRetrive(String email) {
+        return loginRepository.checkEmailRetrive(email);
+    }
 
     @Override
-    public void saveAccountRegister(String name, String password) {
-        loginRepository.saveAccountRegister(name, password);
+    public void saveAccountRegister(String name, String password, String email) {
+        loginRepository.saveAccountRegister(name, password, email);
     }
     @Override
-    public int deleteUser(int id){ return loginRepository.deleteUser(id);
+    public int deleteUser(int id){
+        return loginRepository.deleteUser(id);
     }
 
     @Override

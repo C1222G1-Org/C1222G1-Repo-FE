@@ -12,8 +12,8 @@ import java.util.List;
 
 public class LoginRepositoryImpl implements ILoginRepository {
     private static final String SELECT_ALL_ACCOUNT = "select * from account;";
-    private static final String SAVE_ACCOUNT_REGISTER = "insert into account(username, password, isUser, isAdmin) \n" +
-            "values (?,?,1,0);";
+    private static final String SAVE_ACCOUNT_REGISTER = "insert into account(username, password, email, isUser, isAdmin) \n" +
+            "values (?,?,?,1,0);";
     private static final String DELETE_ACCOUNT_USER = "delete from account where id_account = ?";
     private static final String SELECT_ALL_ACCOUNT_USER = "select * from account where isAdmin = 0;";
 
@@ -28,9 +28,10 @@ public class LoginRepositoryImpl implements ILoginRepository {
                 int id = resultSet.getInt("id_account");
                 String username = resultSet.getString("username");
                 String password = resultSet.getString("password");
+                String email =  resultSet.getString("email");
                 boolean isUser = resultSet.getBoolean("isUser");
                 boolean isAdmin = resultSet.getBoolean("isAdmin");
-                accountUserList.add(new AccountUser(id, username, password, isUser, isAdmin));
+                accountUserList.add(new AccountUser(id, username, password, email, isUser, isAdmin));
             }
             DBConnection.close();
             return accountUserList;
@@ -62,10 +63,23 @@ public class LoginRepositoryImpl implements ILoginRepository {
     }
 
     @Override
-    public void saveAccountRegister(String name, String password) {
-        try (Connection connection = DBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SAVE_ACCOUNT_REGISTER)) {
+    public int checkEmailRetrive(String email) {
+        List<AccountUser> accountUserList = getListAccountUser();
+        for (AccountUser accountUser : accountUserList) {
+            if (email.equals(accountUser.getEmail())) {
+                return 0;
+            }
+        }
+        return 1;
+    }
+
+    @Override
+    public void saveAccountRegister(String name, String password, String email) {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SAVE_ACCOUNT_REGISTER)) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, password);
+            preparedStatement.setString(3, email);
             preparedStatement.executeUpdate();
             DBConnection.close();
         } catch (SQLException e) {
@@ -93,9 +107,10 @@ public class LoginRepositoryImpl implements ILoginRepository {
                 int id = resultSet.getInt("id_acc");
                 String username = resultSet.getString("username");
                 String password = resultSet.getString("password");
+                String email = resultSet.getString("email");
                 boolean isUser = resultSet.getBoolean("isUser");
                 boolean isAdmin = resultSet.getBoolean("isAdmin");
-                accountUserList.add(new AccountUser(id, username, password, isUser, isAdmin));
+                accountUserList.add(new AccountUser(id, username, password, email, isUser, isAdmin));
             }
             DBConnection.close();
             return accountUserList;
