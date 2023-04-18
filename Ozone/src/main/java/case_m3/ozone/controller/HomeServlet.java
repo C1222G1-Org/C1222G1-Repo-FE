@@ -36,15 +36,19 @@ public class HomeServlet extends HttpServlet {
                     }
                     break;
                 default:
-                    showListPost(request, response);
+                    try {
+                        showListPost(request, response);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                     break;
             }
         }
     }
 
-    private void showListPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Post> newPostList = homeService.getListNewPost();
-        request.setAttribute("newPostList", newPostList);
+    private void showListPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        List<Post> postList = homeService.getAllPost();
+        request.setAttribute("newPostList", postList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("home/home.jsp");
         dispatcher.forward(request, response);
     }

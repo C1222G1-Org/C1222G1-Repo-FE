@@ -6,15 +6,15 @@ p {
 }
 body {
     background: #000;
-    color: #fff;
+    color: #A349A4;
 }
 
 .container {
     min-width: 100%;
     padding: 0;
     background-image: linear-gradient(
-            rgba(10, 10, 10, 0.7),
-            rgba(10, 10, 10, 0.7)),
+            rgb(255, 255, 255),
+            rgb(240, 242, 245)),
     url(../assets/images/logo.PNG);
     height: 100vh;
         font-family: SansSerif, Helvetica Neue, Segoe UI, Roboto, Ubuntu
@@ -40,24 +40,29 @@ body {
 .main .form-login {
     width: 450px;
     height: 600px;
+    background-color: rgb(255, 255, 255);
     backdrop-filter: brightness(25%);
     border-radius: 5px;
     padding: 60px 68px 40px;
+    border: 1px solid #dddfe2;
 }
 
 .form-login #login h1 {
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 28px;
+    background-color: white;
+    color: #A349A4;
 }
 
 #login .username,
+#login .email,
 #login .password {
     outline: 0;
-    color: #fff;
-    background: #333;
-    border: 0;
-    border-radius: 4px;
+    color: #1d2129;
+    background: #ffffff;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
     height: 50px;
     line-height: 50px;
     padding: 8px 20px;
@@ -66,7 +71,7 @@ body {
 }
 
 #login .submit-btn {
-    background: #e50914;
+    background: #0055ff;
     border-radius: 4px;
     font-size: 16px;
     color: #fff;

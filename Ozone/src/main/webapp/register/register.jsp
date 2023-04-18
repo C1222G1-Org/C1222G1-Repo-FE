@@ -21,7 +21,7 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
           crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/register/register.css"/>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/register/form-register.css"/>
 </head>
 <body>
 <div class="container">
@@ -47,6 +47,9 @@
                   value="${username}"
                 </c:if>
         />
+        <c:if test="${usernameValidate == null}">
+        <p style="color: red; margin-top: -8px; margin-bottom: 8px" class="title-error-login">${usernameValidate}</p>
+        </c:if>
         <c:if test="${usernameMessage != null}">
           <p style="color: red; margin-top: -8px; margin-bottom: 8px" class="title-error-login">${usernameMessage}</p>
         </c:if>
