@@ -68,4 +68,8 @@ public class Post {
     public void setPostDate(Date postDate) {
         this.postDate = postDate;
     }
+
+    public void setUserName(String userName) {
+
+    }
 }

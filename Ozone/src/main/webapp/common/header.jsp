@@ -9,8 +9,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" language="java" %>
 <div class="header">
   <div class="left-header">
-      <a onClick="navigateNewPage('#')" href="home"><img class="logo" src="${pageContext.request.contextPath}/assets/images/logo.PNG"
-                                                         height 90px; alt=""></a>
+      <a onClick="navigateNewPage('#')" href="home"><img class="logo" src="${pageContext.request.contextPath}/assets/images/logo.PNG" alt=""></a>
   </div>
   <div class="right-header">
     <form class="form-search-header d-flex" action="home?action=search" method="post">
