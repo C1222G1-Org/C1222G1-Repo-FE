@@ -27,22 +27,22 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/post/detail.css"/>
 
 </head>
-<body class="bg-img-body">
+<body class="bg-img-body" >
 <jsp:include page="../common/header.jsp"></jsp:include>
 <div class="content">
     <div class="post-content d-flex">
         <div class="post-content__info row2">
-            <h1 class="title fw-bold">${movie.getTitle()}</h1>
+            <h1 class="title fw-bold">${post.getTitle()}</h1>
             <div class="more-info">
-                <span>${post.getUsername()}</span>
-                <span>${post.getDate()}</span>
-                <span>${post.getContent()}</span>
+                <div class="usernamePost">${userPost.get(0).getUsername()}</div>
+                <div class="datePost">${post.getPostDate()}</div>
+                <div class="contentPost">${post.getContent()}</div>
             </div>
 
             <div class="card">
                 <div class="row">
                     <div class="col-2">
-                        <span>${account.getUsername()}</span>
+                        <span>${userComment.get(0).getUsername()}</span>
                     </div>
                     <div class="col-10">
                         <div class="comment-box ml-2">

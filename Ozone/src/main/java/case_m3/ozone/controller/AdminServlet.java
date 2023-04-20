@@ -99,7 +99,7 @@ public class AdminServlet extends HttpServlet {
             path = "";
         }
         switch (path) {
-            case "movie":
+            case "post":
                 handleSubmitFormPost(request, response);
                 break;
             case "user":

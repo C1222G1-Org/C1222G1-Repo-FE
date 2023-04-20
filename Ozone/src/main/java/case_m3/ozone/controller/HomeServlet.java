@@ -56,10 +56,14 @@ public class HomeServlet extends HttpServlet {
     private void showDetailPost(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Post post = homeService.getPostById(id);
+        List<AccountUser> accountUserPostList = homeService.getAccountPostById(id);
         List<Comment> commentList =homeService.getListCommentByIdPost(id);
+        List<AccountUser> accountUserCommentList = homeService.getAccountCommentById(id);
         request.setAttribute("post", post);
+        request.setAttribute("userPost", accountUserPostList);
         request.setAttribute("commentList", commentList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("movies/detail.jsp");
+        request.setAttribute("userComment", accountUserCommentList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("post/detail.jsp");
         dispatcher.forward(request, response);
     }
 
