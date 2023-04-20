@@ -42,7 +42,7 @@
             <div class="card">
                 <div class="row">
                     <div class="col-2">
-                        <span>${userComment.get(0).getUsername()}</span>
+                        <span>${sessionScope.account.getUsername()}</span>
                     </div>
                     <div class="col-10">
                         <div class="comment-box ml-2">
