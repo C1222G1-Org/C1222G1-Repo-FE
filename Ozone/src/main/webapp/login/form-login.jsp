@@ -50,6 +50,11 @@
                 class="password w-100"
                 placeholder="Password"
         />
+
+        <c:if test="${accountUser == null}">
+          <p style="color: red; margin-top: -8px; margin-bottom: 8px" class="title-error-login">${messageError}</p>
+        </c:if>
+
         <input
                 type="submit"
                 class="submit-btn w-100 fw-bold"

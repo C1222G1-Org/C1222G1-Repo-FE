@@ -69,6 +69,14 @@
                     </div>
                 </div>
             </div>
+
+            <div class="comment">
+                <div>
+                    <div class="usernamePost">${sessionScope.account.getUsername()}</div>
+                    <div class="datePost">${commentList.getCommentDate()}</div>
+                    <div class="contentPost">${commentList.getContent()}</div>
+                </div>
+            </div>
         </div>
         <jsp:include page="../common/footer.jsp"></jsp:include>
     </div>
