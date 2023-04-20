@@ -39,11 +39,7 @@ public class AdminServlet extends HttpServlet {
                 handlePathUser(request, response);
                 break;
             default:
-                try {
-                    showListPost(request, response);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
+                showListUser(request, response);
                 break;
         }
     }
@@ -51,7 +47,7 @@ public class AdminServlet extends HttpServlet {
     private void showListPost(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<Post> postList = homeService.getAllPost();
         request.setAttribute("postList", postList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/listPost.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/listUser.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -75,7 +71,7 @@ public class AdminServlet extends HttpServlet {
                 }
                 break;
             default:
-                showListPost(request, response);
+                showListUser(request, response);
                 break;
         }
     }
@@ -115,7 +111,7 @@ public class AdminServlet extends HttpServlet {
         }
     }
 
-    private void handlePathUser(HttpServletRequest request, HttpServletResponse response) {
+    private void handlePathUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -138,7 +134,11 @@ public class AdminServlet extends HttpServlet {
         }
     }
 
-    private void showListUser(HttpServletRequest request, HttpServletResponse response) {
+    private void showListUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<AccountUser> accountUserList = loginService.getListAccountUserInAdmin();
+        request.setAttribute("accountUserList", accountUserList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/listUser.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void handleSubmitFormPost(HttpServletRequest request, HttpServletResponse response) {
@@ -149,7 +149,6 @@ public class AdminServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         loginService.deleteUser(id);
         response.sendRedirect("admin?path=user");
-
     }
 
     public void deletePost(HttpServletRequest request, HttpServletResponse response) throws IOException {

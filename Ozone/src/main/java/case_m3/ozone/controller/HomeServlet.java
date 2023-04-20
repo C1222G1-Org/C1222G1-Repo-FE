@@ -69,6 +69,31 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "search":
+                showListSearchPost(request, response);
+                break;
+            default:
+                try {
+                    showListPost(request, response);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+        }
+    }
 
+    private void showListSearchPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("search");
+        List<Post> postList = homeService.getListPostByName(search);
+        request.setAttribute("postList", postList);
+        if (postList.size() == 0) {
+            request.setAttribute("message", "Post titled \"" + search+ "\" could not be found. Please try again.");
+        }
+        request.getRequestDispatcher("navigation/generalPost.jsp").forward(request, response);
     }
 }

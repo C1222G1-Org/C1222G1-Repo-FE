@@ -37,6 +37,7 @@ public class LoginServiceImpl implements ILoginService{
 
     @Override
     public List<AccountUser> getListAccountUserInAdmin() {
+
         return loginRepository.getListAccountUserInAdmin();
     }
 }
