@@ -72,7 +72,7 @@
 
             <div class="comment">
                 <div>
-                    <div class="usernamePost">${sessionScope.account.getUsername()}</div>
+                    <div class="usernamePost">${account.getUsername()}</div>
                     <div class="datePost">${commentList.getCommentDate()}</div>
                     <div class="contentPost">${commentList.getContent()}</div>
                 </div>

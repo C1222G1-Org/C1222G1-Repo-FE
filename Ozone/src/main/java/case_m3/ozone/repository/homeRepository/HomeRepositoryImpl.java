@@ -130,22 +130,6 @@ public class HomeRepositoryImpl implements IHomeRepository {
         return commentList;
     }
 
-//    @Override
-//    public List<AccountUser> getAllAccount() {
-//        List<AccountUser> accountUserList = new ArrayList<>();
-//        try (Connection connection = DBConnection.getConnection();
-//             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_ACCOUNT)) {
-//            ResultSet resultSet = preparedStatement.executeQuery();
-//            while (resultSet.next()) {
-//                int id = resultSet.getInt("id_account");
-//                String username = resultSet.getString("username_account");
-//                accountUserList.add(new AccountUser(id, username));
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return accountUserList;
-//    }
 
     public List<Comment> getListComment() {
         List<Comment> commentList = new ArrayList<>();

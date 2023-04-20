@@ -101,10 +101,11 @@ public class LoginRepositoryImpl implements ILoginRepository {
     }
     public List<AccountUser> getListAccountUserInAdmin() {
         List<AccountUser> accountUserList = new ArrayList<>();
-        try (Connection connection = DBConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_ACCOUNT_USER)) {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_ACCOUNT_USER)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                int id = resultSet.getInt("id_acc");
+                int id = resultSet.getInt("id_account");
                 String username = resultSet.getString("username");
                 String password = resultSet.getString("password");
                 String email = resultSet.getString("email");
