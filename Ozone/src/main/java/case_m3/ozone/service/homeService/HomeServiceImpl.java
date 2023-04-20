@@ -39,4 +39,12 @@ public class HomeServiceImpl implements  IHomeService{
     public List<Comment> getListComment() {
         return homeRepository.getListComment();
     }
+
+    public List<AccountUser> getAccountPostById(int id) {
+        return homeRepository.getAccountPostById(id);
+    }
+
+    public List<AccountUser> getAccountCommentById(int id) {
+        return homeRepository.getAccountCommentById(id);
+    }
 }

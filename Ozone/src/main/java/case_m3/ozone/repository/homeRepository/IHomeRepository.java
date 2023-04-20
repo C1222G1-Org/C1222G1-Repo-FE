@@ -16,4 +16,6 @@ public interface IHomeRepository {
 
 //    List<AccountUser> getAllAccount();
     List<Comment> getListComment();
+    List<AccountUser> getAccountPostById(int id);
+    List<AccountUser> getAccountCommentById(int id);
 }

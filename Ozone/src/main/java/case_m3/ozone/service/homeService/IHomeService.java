@@ -14,4 +14,6 @@ public interface IHomeService {
     Post getPostById(int id) throws SQLException;
     List<Comment> getListCommentByIdPost(int id);
     List<Comment> getListComment();
+    List<AccountUser> getAccountPostById(int id);
+    List<AccountUser> getAccountCommentById(int id);
 }
